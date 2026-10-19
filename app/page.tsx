@@ -9,6 +9,8 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
+import LaundrySection from "./Laundrysection";
+
 export default function Home() {
   const whatsappNumber = "6282318730894";
   const whatsappMessage = encodeURIComponent(
@@ -403,6 +405,8 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      <LaundrySection />
 
       {/* FOOTER */}
       <footer className="bg-slate-900 text-slate-400 py-10 px-4 mt-16 border-t border-slate-800">
