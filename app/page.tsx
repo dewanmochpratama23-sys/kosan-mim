@@ -1,23 +1,20 @@
-"use client"; // Menandakan komponen interaktif di Next.js
+"use client";
 import React, { useState, useEffect } from "react";
 import {
   FaWhatsapp,
   FaMapMarkerAlt,
   FaBolt,
-  FaEdit,
-  FaSave,
   FaLock,
   FaUnlock,
 } from "react-icons/fa";
 
 export default function Home() {
-  const whatsappNumber = "6283137538544";
+  const whatsappNumber = "6282318730894";
   const whatsappMessage = encodeURIComponent(
     "Halo Kak Dewan, saya ingin tanya-tanya / survei kamar Kosan Murah PT MIM.",
   );
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
-  // Data awal tipe kamar
   const initialRooms = [
     {
       id: 1,
@@ -86,12 +83,10 @@ export default function Home() {
     },
   ];
 
-  // State untuk menyimpan data kamar & mode admin
   const [rooms, setRooms] = useState(initialRooms);
   const [isAdmin, setIsAdmin] = useState(false);
   const [password, setPassword] = useState("");
 
-  // Simpan/Muat data dari LocalStorage agar tidak reset saat direload
   useEffect(() => {
     const savedRooms = localStorage.getItem("kosan_mim_rooms");
     if (savedRooms) {
@@ -117,37 +112,39 @@ export default function Home() {
   const handleLoginAdmin = (e: React.FormEvent) => {
     e.preventDefault();
     if (password === "223344") {
-      // PIN Admin sederhana (bisa diubah)
       setIsAdmin(true);
       alert(
         "Mode Owner / Admin Aktif! Sekarang Anda bisa mengedit data kamar.",
       );
     } else {
-      alert("PIN Salah! Gunakan PIN: HP");
+      alert("PIN Salah! Gunakan PIN: 223344");
     }
   };
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-800 font-sans pb-20">
       {/* NAVBAR */}
-      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <h1 className="text-xl font-bold text-blue-900 tracking-tight">
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
+          <h1 className="text-lg md:text-xl font-bold text-blue-900 tracking-tight text-center sm:text-left">
             Kosan Murah PT MIM
           </h1>
-          <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-2 w-full sm:w-auto">
             {!isAdmin ? (
-              <form onSubmit={handleLoginAdmin} className="flex gap-2">
+              <form
+                onSubmit={handleLoginAdmin}
+                className="flex gap-1.5 flex-1 sm:flex-initial"
+              >
                 <input
                   type="password"
                   placeholder="PIN HP"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="px-3 py-1.5 text-xs border border-slate-300 rounded-lg w-28 focus:outline-blue-600"
+                  className="px-3 py-1.5 text-xs border border-slate-300 rounded-lg w-28 sm:w-32 focus:outline-blue-600 bg-slate-50"
                 />
                 <button
                   type="submit"
-                  className="bg-slate-800 text-white px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-slate-900 flex items-center gap-1"
+                  className="bg-slate-800 text-white px-3 py-1.5 rounded-lg text-xs font-medium hover:bg-slate-900 flex items-center gap-1 shrink-0"
                 >
                   <FaLock /> Login
                 </button>
@@ -164,15 +161,14 @@ export default function Home() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-full font-medium text-sm flex items-center gap-2 transition-all shadow-md"
+              className="bg-emerald-600 hover:bg-emerald-700 text-white px-3.5 py-1.5 rounded-lg font-medium text-xs sm:text-sm flex items-center gap-1.5 transition-all shadow-sm shrink-0"
             >
-              <FaWhatsapp className="text-lg" /> WhatsApp
+              <FaWhatsapp className="text-base" /> WhatsApp
             </a>
           </div>
         </div>
       </header>
 
-      {/* ADMIN NOTIFICATION BANNER */}
       {isAdmin && (
         <div className="bg-amber-500 text-slate-900 py-2 px-4 text-center font-semibold text-xs shadow-inner">
           ⚠️ MODE OWNER AKTIF: Anda dapat langsung mengubah Harga atau
@@ -181,22 +177,22 @@ export default function Home() {
       )}
 
       {/* HERO SECTION */}
-      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-20 px-4 text-center relative overflow-hidden">
+      <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-16 md:py-20 px-4 text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto relative z-10">
           <span className="bg-blue-700/60 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider border border-blue-500/30 inline-block mb-4">
             Strategis Tepat di Belakang PT MIM
           </span>
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-5xl font-extrabold mb-4 md:mb-6 leading-tight">
             Hunian Nyaman, Aman, & Terjangkau untuk Karyawan Karawang
           </h2>
-          <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
+          <p className="text-slate-300 text-sm md:text-lg mb-8 max-w-2xl mx-auto">
             Lokasi sangat dekat dengan kawasan industri. Fasilitas lengkap mulai
             dari kipas angin hingga AC, kamar mandi dalam, dan Wi-Fi cepat.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-3">
             <a
               href="#kamar"
-              className="bg-white text-blue-900 hover:bg-slate-100 font-semibold px-6 py-3 rounded-xl shadow transition-all"
+              className="bg-white text-blue-900 hover:bg-slate-100 font-semibold px-6 py-3 rounded-xl shadow transition-all text-sm"
             >
               Lihat Tipe Kamar & Harga
             </a>
@@ -204,26 +200,26 @@ export default function Home() {
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow transition-all flex items-center justify-center gap-2"
+              className="bg-emerald-500 hover:bg-emerald-600 text-white font-semibold px-6 py-3 rounded-xl shadow transition-all flex items-center justify-center gap-2 text-sm"
             >
-              <FaWhatsapp className="text-xl" /> Tanya Ketersediaan Kamar
+              <FaWhatsapp className="text-lg" /> Tanya Ketersediaan Kamar
             </a>
           </div>
         </div>
       </section>
 
       {/* LOKASI & INFO PEMILIK */}
-      <section className="max-w-6xl mx-auto px-4 -mt-10 relative z-20 mb-16">
-        <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 border border-slate-100">
+      <section className="max-w-6xl mx-auto px-4 -mt-8 md:-mt-10 relative z-20 mb-16">
+        <div className="bg-white rounded-2xl shadow-xl p-5 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 border border-slate-100">
           <div className="flex items-start gap-4">
-            <div className="bg-blue-100 text-blue-800 p-3 rounded-xl text-xl">
+            <div className="bg-blue-100 text-blue-800 p-3 rounded-xl text-xl shrink-0">
               <FaMapMarkerAlt />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-slate-900 mb-1">
+              <h3 className="font-bold text-base md:text-lg text-slate-900 mb-1">
                 Lokasi Strategis
               </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
                 Kp. Situwaringin, Dusun Serang, RT 012 / RW 004, Desa
                 Sumurkondang, Kecamatan Klari, Kabupaten Karawang (Tepat di
                 belakang PT MIM).
@@ -231,14 +227,14 @@ export default function Home() {
             </div>
           </div>
           <div className="flex items-start gap-4">
-            <div className="bg-emerald-100 text-emerald-800 p-3 rounded-xl text-xl">
+            <div className="bg-emerald-100 text-emerald-800 p-3 rounded-xl text-xl shrink-0">
               <FaBolt />
             </div>
             <div>
-              <h3 className="font-bold text-lg text-slate-900 mb-1">
+              <h3 className="font-bold text-base md:text-lg text-slate-900 mb-1">
                 Sistem Listrik Mandiri
               </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
                 Setiap kamar dilengkapi dengan{" "}
                 <strong>token / kWh meter masing-masing</strong>, sehingga
                 penggunaan listrik lebih transparan dan adil.
@@ -249,8 +245,8 @@ export default function Home() {
       </section>
 
       {/* KATALOG TIPE KAMAR */}
-      <section id="kamar" className="max-w-6xl mx-auto px-4 py-12">
-        <div className="text-center mb-12">
+      <section id="kamar" className="max-w-6xl mx-auto px-4 py-8 md:py-12">
+        <div className="text-center mb-10">
           <h3 className="text-2xl md:text-3xl font-bold text-slate-900 mb-3">
             Pilihan Tipe Kamar & Harga
           </h3>
@@ -298,7 +294,7 @@ export default function Home() {
                         onChange={(e) =>
                           handleUpdate(room.id, "price", e.target.value)
                         }
-                        className="w-full px-3 py-1 border border-blue-400 rounded-lg font-bold text-blue-900 text-sm"
+                        className="w-full px-3 py-1.5 border border-blue-400 rounded-lg font-bold text-blue-900 text-sm bg-blue-50/50"
                       />
                     </div>
                   ) : (
@@ -310,7 +306,6 @@ export default function Home() {
                     </div>
                   )}
 
-                  {/* Ketersediaan Kamar / Stok */}
                   {isAdmin ? (
                     <div className="mt-2">
                       <label className="text-xs text-slate-500 font-semibold">
@@ -322,12 +317,12 @@ export default function Home() {
                         onChange={(e) =>
                           handleUpdate(room.id, "stock", e.target.value)
                         }
-                        className="w-full px-3 py-1 border border-amber-400 rounded-lg text-xs font-semibold text-amber-700 bg-amber-50"
+                        className="w-full px-3 py-1.5 border border-amber-400 rounded-lg text-xs font-semibold text-amber-700 bg-amber-50"
                       />
                     </div>
                   ) : (
                     room.stock && (
-                      <div className="text-xs text-amber-600 font-semibold mt-1 bg-amber-50 px-2.5 py-1 rounded-md inline-block border border-amber-200">
+                      <div className="text-xs text-amber-600 font-semibold mt-1.5 bg-amber-50 px-2.5 py-1 rounded-md inline-block border border-amber-200">
                         ● {room.stock}
                       </div>
                     )
@@ -353,7 +348,7 @@ export default function Home() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-slate-900 hover:bg-blue-900 text-white text-center py-2.5 rounded-xl text-sm font-medium transition-all"
+                className="w-full bg-slate-900 hover:bg-blue-900 text-white text-center py-2.5 rounded-xl text-sm font-medium transition-all shadow-sm"
               >
                 Pesan / Tanya Kamar
               </a>
@@ -363,7 +358,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="bg-slate-900 text-slate-400 py-12 px-4 mt-20 border-t border-slate-800">
+      <footer className="bg-slate-900 text-slate-400 py-10 px-4 mt-16 border-t border-slate-800">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
           <div>
             <h4 className="text-white font-bold text-lg mb-1">
@@ -371,7 +366,7 @@ export default function Home() {
             </h4>
             <p className="text-sm">Pemilik: Dewan Mochamad Pratama</p>
             <p className="text-sm text-slate-500 mt-1">
-              No. HP / WhatsApp: 083137538544
+              No. HP / WhatsApp: 082318730894
             </p>
           </div>
           <div className="flex flex-col items-center md:items-end gap-3">
@@ -384,7 +379,7 @@ export default function Home() {
               <FaWhatsapp className="text-lg" /> Hubungi Pemilik via WhatsApp
             </a>
             <p className="text-xs text-slate-500">
-              2026 Kosan Murah PT MIM. All rights reserved.S reserved.
+              © 2026 Kosan Murah PT MIM. All rights reserved.
             </p>
           </div>
         </div>
