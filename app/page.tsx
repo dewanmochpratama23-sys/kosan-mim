@@ -7,6 +7,7 @@ import {
   FaLock,
   FaUnlock,
 } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const whatsappNumber = "6282318730894";
@@ -126,9 +127,14 @@ export default function Home() {
       {/* NAVBAR */}
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">
         <div className="max-w-6xl mx-auto px-4 py-3 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <h1 className="text-lg md:text-xl font-bold text-blue-900 tracking-tight text-center sm:text-left">
+          <motion.h1
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5 }}
+            className="text-lg md:text-xl font-bold text-blue-900 tracking-tight text-center sm:text-left"
+          >
             Kosan Murah PT MIM
-          </h1>
+          </motion.h1>
           <div className="flex flex-wrap items-center justify-center gap-2 w-full sm:w-auto">
             {!isAdmin ? (
               <form
@@ -178,7 +184,12 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section className="bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white py-16 md:py-20 px-4 text-center relative overflow-hidden">
-        <div className="max-w-4xl mx-auto relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="max-w-4xl mx-auto relative z-10"
+        >
           <span className="bg-blue-700/60 text-blue-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider border border-blue-500/30 inline-block mb-4">
             Strategis Tepat di Belakang PT MIM
           </span>
@@ -205,12 +216,17 @@ export default function Home() {
               <FaWhatsapp className="text-lg" /> Tanya Ketersediaan Kamar
             </a>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* LOKASI & INFO PEMILIK */}
       <section className="max-w-6xl mx-auto px-4 -mt-8 md:-mt-10 relative z-20 mb-16">
-        <div className="bg-white rounded-2xl shadow-xl p-5 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 border border-slate-100">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="bg-white rounded-2xl shadow-xl p-5 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-6 border border-slate-100"
+        >
           <div className="flex items-start gap-4">
             <div className="bg-blue-100 text-blue-800 p-3 rounded-xl text-xl shrink-0">
               <FaMapMarkerAlt />
@@ -241,7 +257,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* KATALOG TIPE KAMAR */}
@@ -257,9 +273,14 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {rooms.map((room) => (
-            <div
+          {rooms.map((room, index) => (
+            <motion.div
               key={room.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ y: -5 }}
               className={`bg-white rounded-2xl p-6 shadow-md border transition-all hover:shadow-xl flex flex-col justify-between ${
                 room.highlight
                   ? "border-blue-500 ring-2 ring-blue-500/20"
@@ -352,7 +373,7 @@ export default function Home() {
               >
                 Pesan / Tanya Kamar
               </a>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
