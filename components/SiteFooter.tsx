@@ -147,7 +147,7 @@ export default function SiteFooter() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
           <p>
-            &copy; {new Date().getFullYear()} Kosan Murah PT MIM Karawang. Seluruh hak cipta dilindungi undang-undang.
+            &copy; 2026 Kosan Murah PT MIM Karawang. Seluruh hak cipta dilindungi undang-undang.
           </p>
           <div className="flex items-center gap-4">
             <Link href="/kebijakan-privasi" className="hover:text-slate-400 transition-colors">
