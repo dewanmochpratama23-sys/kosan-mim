@@ -10,6 +10,7 @@ import {
   FaBookOpen,
   FaArrowRight,
   FaCheckCircle,
+  FaGlobe,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
@@ -607,6 +608,53 @@ export default function Home() {
               </Link>
             </div>
           </article>
+        </div>
+      </section>
+
+      {/* FOUNDER & OWNER SPOTLIGHT SECTION */}
+      <section className="max-w-6xl mx-auto px-4 py-8">
+        <div className="bg-gradient-to-r from-blue-950 via-slate-900 to-indigo-950 text-white rounded-3xl p-6 sm:p-8 shadow-xl border border-slate-800 relative overflow-hidden">
+          <div className="absolute -top-16 -right-16 w-56 h-56 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/dewan-foto.jpg"
+                alt="Dewan Mochamad Pratama - Founder & Pengelola Kosan Murah PT MIM"
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border-2 border-blue-400/40 shadow-lg shrink-0"
+              />
+              <div className="space-y-1.5">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-300 text-[11px] font-semibold tracking-wide border border-blue-400/30">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Founder &amp; Pengelola Properti
+                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold tracking-tight">
+                  Dewan Mochamad Pratama
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 max-w-xl leading-relaxed">
+                  Menghadirkan hunian sewa kontrakan yang nyaman, aman, dan hemat biaya tepat di belakang pabrik PT Multi Indomandiri Klari. Dikelola langsung secara transparan dan kekeluargaan.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full md:w-auto">
+              <a
+                href="https://dewan-portofolio-delta.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs transition-all shadow-md hover:shadow-blue-500/20 group"
+              >
+                <FaGlobe className="text-xs group-hover:rotate-12 transition-transform" />
+                <span>Lihat Portofolio Dewan &rarr;</span>
+              </a>
+              <Link
+                href="/tentang-kami"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs border border-white/15 transition-all"
+              >
+                <span>Profil &amp; Visi Hunian</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

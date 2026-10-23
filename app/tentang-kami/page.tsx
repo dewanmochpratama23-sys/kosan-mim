@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import SiteNavbar from "@/components/SiteNavbar";
 import SiteFooter from "@/components/SiteFooter";
 import Link from "next/link";
-import { FaCheckCircle, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
+import { FaCheckCircle, FaMapMarkerAlt, FaWhatsapp, FaGlobe } from "react-icons/fa";
 
 export const metadata: Metadata = {
   title: "Tentang Kami & Profil Pengelola - Kosan Murah PT MIM Karawang",
@@ -56,16 +56,63 @@ export default function AboutPage() {
             </p>
 
             <h2 className="text-lg font-bold text-slate-900 pt-4 border-t border-slate-100">
-              Profil Pemilik &amp; Pengelola
+              Profil Pemilik &amp; Pengelola (Founder)
             </h2>
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-2">
-              <h3 className="font-bold text-base text-slate-900">Dewan Mochamad Pratama</h3>
-              <p className="text-xs text-slate-600 font-medium">
-                Founder, Pemilik Properti, &amp; Pengembang Web Platform Kosan Murah PT MIM
-              </p>
-              <p className="text-xs text-slate-600 leading-relaxed pt-1">
-                Dewan Mochamad Pratama adalah praktisi operasional yang telah berpengalaman selama lebih dari 4 tahun di industri logistik pergudangan Karawang (PT Multi Indomandiri). Memahami betul dinamika dan kebutuhan para pekerja pabrik terhadap tempat istirahat yang tenang setelah lelah bekerja lembur atau giliran shift, beliau mengelola properti kontrakan ini secara profesional, transparan, dan ramah kekeluargaan.
-              </p>
+            <div className="bg-gradient-to-br from-slate-50 via-blue-50/30 to-indigo-50/20 border border-slate-200 rounded-2xl p-5 sm:p-6 shadow-sm space-y-4">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5">
+                <div className="relative shrink-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/dewan-foto.jpg"
+                    alt="Dewan Mochamad Pratama - Founder & Pengelola Kosan Murah PT MIM"
+                    className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover shadow-md border-2 border-white ring-2 ring-blue-500/20"
+                  />
+                  <span
+                    className="absolute -bottom-1 -right-1 bg-emerald-500 text-white p-1 rounded-full text-[10px] shadow"
+                    title="Pengelola Terverifikasi"
+                  >
+                    <FaCheckCircle />
+                  </span>
+                </div>
+
+                <div className="space-y-2 text-center sm:text-left flex-1">
+                  <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                    <h3 className="font-extrabold text-lg sm:text-xl text-slate-900">
+                      Dewan Mochamad Pratama
+                    </h3>
+                    <span className="text-[11px] font-bold text-blue-700 bg-blue-100 px-2.5 py-0.5 rounded-full">
+                      Owner &amp; Developer
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 font-medium">
+                    Founder Kosan Murah PT MIM &bull; Software &amp; Mobile App Developer &bull; Praktisi Logistik Industri
+                  </p>
+                  <p className="text-xs text-slate-600 leading-relaxed pt-1">
+                    Dewan Mochamad Pratama adalah praktisi operasional yang telah berpengalaman selama lebih dari 4 tahun di industri logistik pergudangan Karawang (PT Multi Indomandiri / Wings Group). Memahami betul dinamika dan kebutuhan para pekerja pabrik terhadap tempat istirahat yang tenang setelah lelah bekerja lembur atau giliran shift, beliau mendirikan dan mengelola langsung properti kontrakan ini secara profesional, transparan, dan ramah kekeluargaan.
+                  </p>
+
+                  <div className="pt-2 flex flex-wrap items-center justify-center sm:justify-start gap-2.5">
+                    <a
+                      href="https://dewan-portofolio-delta.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition-all shadow-sm group"
+                    >
+                      <FaGlobe className="text-xs group-hover:rotate-12 transition-transform" />
+                      <span>Kunjungi Web Portofolio Dewan &rarr;</span>
+                    </a>
+                    <a
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs transition-all shadow-sm"
+                    >
+                      <FaWhatsapp className="text-xs" />
+                      <span>Chat Langsung via WhatsApp</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <h2 className="text-lg font-bold text-slate-900 pt-4 border-t border-slate-100">

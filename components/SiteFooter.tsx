@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { FaWhatsapp, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from "react-icons/fa";
+import { FaWhatsapp, FaMapMarkerAlt, FaPhoneAlt, FaEnvelope, FaGlobe } from "react-icons/fa";
 
 export default function SiteFooter() {
   const whatsappNumber = "6282318730894";
@@ -139,6 +139,17 @@ export default function SiteFooter() {
                 <FaPhoneAlt className="text-emerald-400 shrink-0" />
                 <span>0823-1873-0894 (Dewan M. Pratama)</span>
               </div>
+              <div className="flex items-center gap-2 pt-1">
+                <FaGlobe className="text-blue-400 shrink-0" />
+                <a
+                  href="https://dewan-portofolio-delta.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 font-medium underline underline-offset-2 transition-colors"
+                >
+                  Portofolio Founder (Dewan M. Pratama) &rarr;
+                </a>
+              </div>
             </div>
           </div>
 
@@ -147,9 +158,27 @@ export default function SiteFooter() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center sm:text-left">
           <p>
-            &copy; 2026 Kosan Murah PT MIM Karawang. Seluruh hak cipta dilindungi undang-undang.
+            &copy; 2026 Kosan Murah PT MIM Karawang. Dikelola &amp; Dikembangkan oleh{" "}
+            <a
+              href="https://dewan-portofolio-delta.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-blue-400 font-medium underline underline-offset-2 transition-colors"
+            >
+              Dewan Mochamad Pratama
+            </a>
+            .
           </p>
           <div className="flex items-center gap-4">
+            <a
+              href="https://dewan-portofolio-delta.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-blue-400 transition-colors"
+            >
+              Portofolio Founder
+            </a>
+            <span>&bull;</span>
             <Link href="/kebijakan-privasi" className="hover:text-slate-400 transition-colors">
               Privasi
             </Link>
