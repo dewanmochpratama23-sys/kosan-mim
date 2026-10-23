@@ -1,15 +1,20 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import {
   FaWhatsapp,
   FaMapMarkerAlt,
   FaBolt,
   FaLock,
   FaUnlock,
+  FaBookOpen,
+  FaArrowRight,
+  FaCheckCircle,
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 import LaundrySection from "./Laundrysection";
+import SiteFooter from "@/components/SiteFooter";
 
 export default function Home() {
   const whatsappNumber = "6282318730894";
@@ -161,6 +166,22 @@ export default function Home() {
               </p>
             </div>
           </motion.div>
+
+          {/* NAV LINKS (DESKTOP) */}
+          <nav className="hidden md:flex items-center gap-5 text-xs font-semibold text-slate-600">
+            <a href="#kamar" className="hover:text-blue-900 transition-colors">
+              Pilihan Kamar
+            </a>
+            <a href="#laundry" className="hover:text-blue-900 transition-colors">
+              Laundry
+            </a>
+            <Link href="/artikel" className="hover:text-blue-900 transition-colors">
+              Panduan Kost
+            </Link>
+            <Link href="/tentang-kami" className="hover:text-blue-900 transition-colors">
+              Tentang Kami
+            </Link>
+          </nav>
 
           {/* MENU KANAN (LOGIN & WHATSAPP) */}
           <div className="flex flex-wrap items-center justify-center gap-2 w-full sm:w-auto">
@@ -408,33 +429,189 @@ export default function Home() {
 
       <LaundrySection />
 
-      {/* FOOTER */}
-      <footer className="bg-slate-900 text-slate-400 py-10 px-4 mt-16 border-t border-slate-800">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-          <div>
-            <h4 className="text-white font-bold text-lg mb-1">
-              Kosan Murah PT MIM
-            </h4>
-            <p className="text-sm">Pemilik: Dewan Mochamad Pratama</p>
-            <p className="text-sm text-slate-500 mt-1">
-              No. HP / WhatsApp: 082318730894
+      {/* TENTANG KOSAN MURAH PT MIM (SUBSTANTIAL CONTENT SECTION) */}
+      <section className="max-w-6xl mx-auto px-4 py-12 md:py-16">
+        <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <div className="space-y-4">
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-md inline-block">
+              Tentang Hunian Kami
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug">
+              Hunian Tenang, Bersih, &amp; Nyaman Khusus Pekerja Industri Karawang
+            </h3>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              <strong>Kosan Murah PT MIM</strong> berlokasi di Dusun Serang, Desa Sumurkondang, Kecamatan Klari, Kabupaten Karawang—posisi tepat di belakang pabrik PT Multi Indomandiri. Kami memahami bahwa setelah seharian lelah bekerja di kawasan industri, setiap pekerja membutuhkan kamar istirahat yang sejuk, tenang, dan memiliki privasi terjaga.
             </p>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Dengan sistem <strong>listrik token mandiri per kamar</strong>, fasilitas kamar mandi dalam, akses Wi-Fi berkecepatan tinggi, dan lingkungan warga yang guyub serta aman, kami berkomitmen memberikan hunian sewa terbaik dengan harga paling terjangkau di kawasan Klari.
+            </p>
+            <div className="pt-2 flex flex-wrap items-center gap-3">
+              <Link
+                href="/tentang-kami"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-900 hover:bg-blue-800 text-white font-semibold text-xs transition-all shadow-sm"
+              >
+                <span>Baca Profil Lengkap &amp; Pengelola</span>
+                <FaArrowRight className="text-[10px]" />
+              </Link>
+              <Link
+                href="/kebijakan-privasi"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs transition-all"
+              >
+                <span>Kebijakan Privasi</span>
+              </Link>
+            </div>
           </div>
-          <div className="flex flex-col items-center md:items-end gap-3">
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-xl font-medium text-sm flex items-center gap-2 transition-all shadow-md"
-            >
-              <FaWhatsapp className="text-lg" /> Hubungi Pemilik via WhatsApp
-            </a>
-            <p className="text-xs text-slate-500">
-              © 2026 Kosan Murah PT MIM. All rights reserved.
-            </p>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-2">
+              <div className="w-9 h-9 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center font-bold text-sm">
+                01
+              </div>
+              <h4 className="font-bold text-slate-900 text-sm">Bebas Macet &amp; Hemat Bensin</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Jarak sangat dekat ke pabrik memungkinkan Anda cukup berjalan kaki atau naik motor 2–3 menit ke tempat kerja.
+              </p>
+            </div>
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-2">
+              <div className="w-9 h-9 rounded-xl bg-emerald-100 text-emerald-800 flex items-center justify-center font-bold text-sm">
+                02
+              </div>
+              <h4 className="font-bold text-slate-900 text-sm">Transparansi Listrik Token</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Setiap kamar memiliki meteran PLN tersendiri, pemakaian adil sesuai kebutuhan masing-masing penghuni.
+              </p>
+            </div>
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-2">
+              <div className="w-9 h-9 rounded-xl bg-purple-100 text-purple-800 flex items-center justify-center font-bold text-sm">
+                03
+              </div>
+              <h4 className="font-bold text-slate-900 text-sm">Koneksi Internet Lancar</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Fasilitas Wi-Fi gratis berkecepatan stabil untuk menunjang hiburan, komunikasi keluarga, dan belajar.
+              </p>
+            </div>
+            <div className="bg-slate-50 border border-slate-200 rounded-2xl p-5 space-y-2">
+              <div className="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-bold text-sm">
+                04
+              </div>
+              <h4 className="font-bold text-slate-900 text-sm">Layanan Laundry Terpadu</h4>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Tersedia layanan cuci setrika kiloan bersih dan wangi langsung di lingkungan kosan tanpa repot.
+              </p>
+            </div>
           </div>
         </div>
-      </footer>
+      </section>
+
+      {/* ARTIKEL & PANDUAN KOST SECTION */}
+      <section className="max-w-6xl mx-auto px-4 py-10 md:py-14">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-8">
+          <div>
+            <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2.5 py-1 rounded-md inline-block mb-2">
+              Blog &amp; Edukasi
+            </span>
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+              Panduan &amp; Artikel Seputar Kost Karawang
+            </h3>
+            <p className="text-slate-600 text-xs sm:text-sm mt-1">
+              Informasi bermanfaat seputar tips memilih hunian, estimasi biaya hidup, dan fasilitas wilayah Klari.
+            </p>
+          </div>
+          <Link
+            href="/artikel"
+            className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 hover:text-blue-800 group"
+          >
+            <span>Lihat Semua Artikel</span>
+            <FaArrowRight className="text-[10px] group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Card 1 */}
+          <article className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div className="space-y-3">
+              <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-blue-50 text-blue-700">
+                Tips Hunian
+              </span>
+              <h4 className="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
+                <Link href="/artikel/tips-memilih-kosan-karyawan-karawang">
+                  7 Tips Memilih Kosan Nyaman dan Strategis untuk Karyawan di Kawasan Industri Karawang
+                </Link>
+              </h4>
+              <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                Bekerja di kawasan industri menuntut fisik bugar. Jangan sampai salah memilih kosan yang membuat lelah di jalan dan boros bensin.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-slate-100 mt-4 flex justify-between items-center text-xs">
+              <span className="text-slate-400">23 Okt 2026</span>
+              <Link
+                href="/artikel/tips-memilih-kosan-karyawan-karawang"
+                className="font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+              >
+                <span>Baca</span>
+                <FaArrowRight className="text-[10px]" />
+              </Link>
+            </div>
+          </article>
+
+          {/* Card 2 */}
+          <article className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div className="space-y-3">
+              <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-700">
+                Finansial &amp; Anggaran
+              </span>
+              <h4 className="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
+                <Link href="/artikel/panduan-biaya-hidup-karyawan-karawang">
+                  Panduan Lengkap Estimasi Biaya Hidup &amp; Pengeluaran Kost Karyawan di Klari Karawang
+                </Link>
+              </h4>
+              <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                Rincian pos pengeluaran bulanan: sewa kamar, kuota listrik token, makan harian, bensin, dan strategi menabung dari gaji UMK.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-slate-100 mt-4 flex justify-between items-center text-xs">
+              <span className="text-slate-400">22 Okt 2026</span>
+              <Link
+                href="/artikel/panduan-biaya-hidup-karyawan-karawang"
+                className="font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+              >
+                <span>Baca</span>
+                <FaArrowRight className="text-[10px]" />
+              </Link>
+            </div>
+          </article>
+
+          {/* Card 3 */}
+          <article className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+            <div className="space-y-3">
+              <span className="text-[11px] font-bold px-2 py-0.5 rounded bg-purple-50 text-purple-700">
+                Info Wilayah
+              </span>
+              <h4 className="font-bold text-slate-900 text-sm sm:text-base group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
+                <Link href="/artikel/fasilitas-dan-akses-sekitar-pt-mim">
+                  Mengenal Akses Transportasi, Fasilitas Publik &amp; Kawasan Industri di Sekitar PT MIM Klari
+                </Link>
+              </h4>
+              <p className="text-xs text-slate-600 line-clamp-3 leading-relaxed">
+                Aksesibilitas Stasiun Klari, Tol Karawang Timur, rute angkot, minimarket 24 jam, dan klinik kesehatan di sekitar Sumurkondang.
+              </p>
+            </div>
+            <div className="pt-4 border-t border-slate-100 mt-4 flex justify-between items-center text-xs">
+              <span className="text-slate-400">20 Okt 2026</span>
+              <Link
+                href="/artikel/fasilitas-dan-akses-sekitar-pt-mim"
+                className="font-bold text-blue-600 hover:text-blue-800 flex items-center gap-1"
+              >
+                <span>Baca</span>
+                <FaArrowRight className="text-[10px]" />
+              </Link>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <SiteFooter />
     </div>
   );
 }
