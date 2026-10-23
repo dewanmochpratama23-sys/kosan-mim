@@ -87,7 +87,7 @@ export default function ArticleThreePage() {
             </h2>
             <p>
               Untuk kebutuhan sehari-hari seperti sabun, pasta gigi, air mineral galon, maupun cemilan, gerai <strong>Indomaret</strong> dan <strong>Alfamart</strong> tersedia dalam jarak sangat dekat (sekitar 200–300 meter). Selain itu, terdapat pasar tradisional dan pedagang sayur keliling setiap pagi yang memudahkan penghuni kos membeli bahan makanan segar dengan harga terjangkau.
-            </h2>
+            </p>
 
             <h2 className="text-lg sm:text-xl font-bold text-slate-900 pt-4 border-t border-slate-100">
               3. Fasilitas Kesehatan &amp; Klinik Medis
