@@ -172,9 +172,9 @@ export default function Home() {
             <a href="#kamar" className="hover:text-blue-900 transition-colors">
               Pilihan Kamar
             </a>
-            <a href="#laundry" className="hover:text-blue-900 transition-colors">
+            <Link href="/laundry" className="hover:text-blue-900 transition-colors">
               Laundry
-            </a>
+            </Link>
             <Link href="/artikel" className="hover:text-blue-900 transition-colors">
               Panduan Kost
             </Link>

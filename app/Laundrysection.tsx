@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function LaundrySection() {
@@ -16,7 +17,7 @@ export default function LaundrySection() {
   };
 
   return (
-    <section className="py-16 bg-gray-50 border-t border-gray-200 overflow-hidden">
+    <section id="laundry" className="py-16 bg-gray-50 border-t border-gray-200 overflow-hidden scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section dengan Animasi Muncul dari Atas */}
         <motion.div
@@ -100,6 +101,14 @@ export default function LaundrySection() {
               </svg>
               <span>Hubungi M.Ilyas Laundry via WhatsApp</span>
             </motion.a>
+
+            <Link
+              href="/laundry"
+              className="w-full mt-2.5 py-2.5 px-4 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-semibold text-center transition-colors flex items-center justify-center gap-1.5"
+            >
+              <span>Lihat Halaman Lengkap &amp; Rincian Paket Laundry</span>
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
           </motion.div>
         </div>
       </div>

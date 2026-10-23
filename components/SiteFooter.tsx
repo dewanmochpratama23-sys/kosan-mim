@@ -63,7 +63,7 @@ export default function SiteFooter() {
                 </Link>
               </li>
               <li>
-                <Link href="/#laundry" className="hover:text-blue-400 transition-colors">
+                <Link href="/laundry" className="hover:text-blue-400 transition-colors">
                   Layanan Laundry Kiloan
                 </Link>
               </li>

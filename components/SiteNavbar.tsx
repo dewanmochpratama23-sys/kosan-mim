@@ -47,7 +47,7 @@ export default function SiteNavbar() {
           <Link href="/#kamar" className="hover:text-blue-900 transition-colors">
             Tipe Kamar
           </Link>
-          <Link href="/#laundry" className="hover:text-blue-900 transition-colors">
+          <Link href="/laundry" className="hover:text-blue-900 transition-colors">
             Laundry
           </Link>
           <Link href="/artikel" className="hover:text-blue-900 transition-colors">
