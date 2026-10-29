@@ -29,7 +29,7 @@ export default function Home() {
       id: 1,
       type: "Tipe A1",
       price: "Rp 700.000",
-      stock: "Tersedia",
+      stock: "Penuh",
       features: [
         "Kasur",
         "Kipas Angin",
@@ -45,7 +45,7 @@ export default function Home() {
       id: 2,
       type: "Tipe A2",
       price: "Rp 1.000.000",
-      stock: "Tersedia",
+      stock: "Penuh",
       features: [
         "Kasur",
         "AC",
@@ -61,7 +61,7 @@ export default function Home() {
       id: 3,
       type: "Tipe B",
       price: "Rp 650.000",
-      stock: "Sisa 2 Kamar",
+      stock: "Sisa 1 Kamar",
       features: [
         "Kasur",
         "Kipas Angin",
@@ -97,7 +97,7 @@ export default function Home() {
   const [password, setPassword] = useState("");
 
   useEffect(() => {
-    const savedRooms = localStorage.getItem("kosan_mim_rooms");
+    const savedRooms = localStorage.getItem("kosan_mim_rooms_v2");
     if (savedRooms) {
       setRooms(JSON.parse(savedRooms));
     }
@@ -115,7 +115,7 @@ export default function Home() {
       return room;
     });
     setRooms(updated);
-    localStorage.setItem("kosan_mim_rooms", JSON.stringify(updated));
+    localStorage.setItem("kosan_mim_rooms_v2", JSON.stringify(updated));
   };
 
   const handleLoginAdmin = (e: React.FormEvent) => {
