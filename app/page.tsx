@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 
 import LaundrySection from "./Laundrysection";
 import SiteFooter from "@/components/SiteFooter";
+import { createClient } from "@/utils/supabase/client";
 
 export default function Home() {
   const whatsappNumber = "6282318730894";
@@ -95,15 +96,38 @@ export default function Home() {
   const [rooms, setRooms] = useState(initialRooms);
   const [isAdmin, setIsAdmin] = useState(false);
   const [password, setPassword] = useState("");
+  const [isSyncing, setIsSyncing] = useState(false);
 
   useEffect(() => {
-    const savedRooms = localStorage.getItem("kosan_mim_rooms_v2");
-    if (savedRooms) {
-      setRooms(JSON.parse(savedRooms));
-    }
+    const fetchRooms = async () => {
+      try {
+        const supabase = createClient();
+        const { data, error } = await supabase
+          .from("rooms")
+          .select("*")
+          .order("id", { ascending: true });
+
+        if (data && data.length > 0 && !error) {
+          setRooms(data);
+          localStorage.setItem("kosan_mim_rooms_v2", JSON.stringify(data));
+          return;
+        }
+      } catch (err) {
+        console.warn("Supabase fetch fallback:", err);
+      }
+
+      const savedRooms = localStorage.getItem("kosan_mim_rooms_v2");
+      if (savedRooms) {
+        try {
+          setRooms(JSON.parse(savedRooms));
+        } catch (e) {}
+      }
+    };
+
+    fetchRooms();
   }, []);
 
-  const handleUpdate = (
+  const handleUpdate = async (
     id: number,
     field: "price" | "stock",
     value: string,
@@ -116,6 +140,20 @@ export default function Home() {
     });
     setRooms(updated);
     localStorage.setItem("kosan_mim_rooms_v2", JSON.stringify(updated));
+
+    // Sinkronisasi instan ke Supabase Cloud Database
+    try {
+      setIsSyncing(true);
+      const supabase = createClient();
+      await supabase
+        .from("rooms")
+        .update({ [field]: value })
+        .eq("id", id);
+      setIsSyncing(false);
+    } catch (err) {
+      console.warn("Update Supabase:", err);
+      setIsSyncing(false);
+    }
   };
 
   const handleLoginAdmin = (e: React.FormEvent) => {
